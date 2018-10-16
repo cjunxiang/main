@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import seedu.divelog.model.dive.DiveSession;
 import seedu.divelog.model.dive.exceptions.DiveNotFoundException;
 
+
 /**
  * The API of the Model component.
  */

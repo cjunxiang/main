@@ -14,6 +14,6 @@ public class DiveLogChangedEvent extends BaseEvent {
 
     @Override
     public String toString() {
-        return "number of persons " + data.getDiveList().size();
+        return "number of dives " + data.getDiveList().size();
     }
 }

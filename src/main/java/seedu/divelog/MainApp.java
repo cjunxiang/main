@@ -17,6 +17,7 @@ import seedu.divelog.commons.core.Version;
 import seedu.divelog.commons.events.ui.ExitAppRequestEvent;
 import seedu.divelog.commons.exceptions.DataConversionException;
 import seedu.divelog.commons.util.ConfigUtil;
+import seedu.divelog.commons.util.DiveTableUtil;
 import seedu.divelog.commons.util.StringUtil;
 import seedu.divelog.logic.Logic;
 import seedu.divelog.logic.LogicManager;
@@ -50,6 +51,7 @@ public class MainApp extends Application {
     protected Model model;
     protected Config config;
     protected UserPrefs userPrefs;
+    protected DiveTableUtil diveTableUtil;
 
 
     @Override
