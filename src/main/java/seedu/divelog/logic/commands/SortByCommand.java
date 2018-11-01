@@ -12,19 +12,19 @@ public class SortByCommand extends Command {
     public static final String COMMAND_WORD = "sortby";
 
     public static final String MESSAGE_SUCCESS = "You have successfully changed the order of your Dive Sessions";
-    public static final String MESSAGE_USAGE =  COMMAND_WORD + " time|location|duration : " +
-            "Sets the order of which the data is sorted.\n " +
-            "Example:\t" + COMMAND_WORD + " time: sorts the data according to time.";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " time|location|duration : "
+            + "Sets the order of which the data is sorted.\n "
+            + "Example:\t" + COMMAND_WORD + " time: sorts the data according to time.";
 
-    public final SortCategory SortCategory;
+    public final SortCategory sortCategory;
 
-    public SortByCommand(SortCategory SortCategory){
-        this.SortCategory=SortCategory;
+    public SortByCommand(SortCategory sortCategory) {
+        this.sortCategory = sortCategory;
     }
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) {
-        ApplicationState.getInstance().setSortByCategory(SortCategory);
+        ApplicationState.getInstance().setSortByCategory(sortCategory);
         if (model.getPlanningMode()) {
             model.plannerCountPlus();
         }
@@ -38,6 +38,6 @@ public class SortByCommand extends Command {
         if (!(obj instanceof SortByCommand)) {
             return false;
         }
-        return ((SortByCommand)obj).SortCategory == SortCategory;
+        return ((SortByCommand) obj).sortCategory == sortCategory;
     }
 }

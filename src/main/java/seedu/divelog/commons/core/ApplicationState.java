@@ -11,8 +11,10 @@ import seedu.divelog.commons.events.UnitsChangedEvent;
  */
 public class ApplicationState {
     private static ApplicationState applicationState = new ApplicationState();
+
     private Units commonUnits;
-    public SortCategory sortByCategory;
+
+    private SortCategory sortByCategory;
 
     private ApplicationState() {
         this.commonUnits = Units.METERS;

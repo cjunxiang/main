@@ -1,10 +1,10 @@
 package seedu.divelog.model.dive;
 
-import seedu.divelog.commons.util.CompareUtil;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import seedu.divelog.commons.util.CompareUtil;
 
 /**
  * @author arjo
@@ -49,7 +49,8 @@ public class DiveSession {
         }
 
         try {
-            this.duration = CompareUtil.checkTimeDifference(this.getStart().getTimeString(), this.getEnd().getTimeString(),
+            this.duration = CompareUtil.checkTimeDifference(this.getStart().getTimeString(),
+                    this.getEnd().getTimeString(),
                     this.getDateStart().getOurDateString(), this.getDateEnd().getOurDateString());
         } catch (Exception e) {
             e.printStackTrace();

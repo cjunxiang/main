@@ -25,15 +25,15 @@ public class SortByCommandParser implements Parser<SortByCommand> {
             throw new ParseException(
                     String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, SortByCommand.MESSAGE_USAGE));
         }
-        switch(trimmed){
-            case "time":
-                return new SortByCommand(SortCategory.TIME);
-            case "location":
-                return new SortByCommand(SortCategory.LOCATION);
-            case "duration":
-                return new SortByCommand(SortCategory.DURATION);
-            default:
-                throw new ParseException(String.format(Messages.MESSAGE_WRONG_SORT, SortByCommand.MESSAGE_USAGE));
+        switch(trimmed) {
+        case "time":
+            return new SortByCommand(SortCategory.TIME);
+        case "location":
+            return new SortByCommand(SortCategory.LOCATION);
+        case "duration":
+            return new SortByCommand(SortCategory.DURATION);
+        default:
+            throw new ParseException(String.format(Messages.MESSAGE_WRONG_SORT, SortByCommand.MESSAGE_USAGE));
         }
 
     }
