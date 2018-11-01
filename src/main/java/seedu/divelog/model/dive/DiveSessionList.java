@@ -9,7 +9,10 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.divelog.commons.core.ApplicationState;
+import seedu.divelog.commons.enums.SortCategory;
 import seedu.divelog.commons.util.CollectionUtil;
+
 import seedu.divelog.model.dive.exceptions.DiveNotFoundException;
 
 /**
@@ -30,18 +33,39 @@ public class DiveSessionList implements Iterable<DiveSession> {
      * Sorts the InternalList based on Time
      * Can be scaled to sort based on other things
      */
-    private void sortDiveSession(int sortByCategory) {
+    private void sortDiveSession() {
+        SortCategory sortByCategory = ApplicationState.getInstance().getSortByCategory();
+
         Comparator<DiveSession> dateTimeComparator = (one, two) -> {
             Date dateTime1 = one.getDateTime();
             Date datetime2 = two.getDateTime();
             return dateTime1.compareTo(datetime2);
         };
+        Comparator<DiveSession> locationComparator = (one, two) -> {
+            String dateTime1 = one.getLocation().getLocationName();
+            String datetime2 = two.getLocation().getLocationName();
+            return dateTime1.compareTo(datetime2);
+        };
+        Comparator<DiveSession> durationComparator = (one, two) -> {
+            Long dateTime1 = one.getDuration();
+            Long datetime2 = two.getDuration();
+            return dateTime1.compareTo(datetime2);
+        };
 
         switch(sortByCategory) {
-        default:
+        case TIME:
             FXCollections.sort(internalList, dateTimeComparator);
             break;
+        case LOCATION:
+            FXCollections.sort(internalList, locationComparator);
+            break;
+        case DURATION:
+            FXCollections.sort(internalList, durationComparator);
+            break;
+        default:
+            FXCollections.sort(internalList, locationComparator);
         }
+
     }
 
     /**
@@ -52,7 +76,7 @@ public class DiveSessionList implements Iterable<DiveSession> {
     public void add(DiveSession toAdd) {
         requireNonNull(toAdd);
         internalList.add(toAdd);
-        sortDiveSession(1);
+        sortDiveSession();
     }
 
     /**
@@ -66,7 +90,7 @@ public class DiveSessionList implements Iterable<DiveSession> {
         if (index == -1) {
             throw new DiveNotFoundException();
         }
-        sortDiveSession(1);
+        sortDiveSession();
         internalList.set(index, editedDiveSession);
     }
 
@@ -76,6 +100,7 @@ public class DiveSessionList implements Iterable<DiveSession> {
      */
     public void remove(DiveSession toRemove) throws DiveNotFoundException {
         requireNonNull(toRemove);
+        sortDiveSession();
         if (!internalList.remove(toRemove)) {
             throw new DiveNotFoundException();
         }
@@ -87,7 +112,7 @@ public class DiveSessionList implements Iterable<DiveSession> {
      */
     public void setDives(DiveSessionList replacement) {
         requireNonNull(replacement);
-        sortDiveSession(1);
+        sortDiveSession();
         internalList.setAll(replacement.internalList);
     }
 
@@ -97,6 +122,7 @@ public class DiveSessionList implements Iterable<DiveSession> {
      */
     public void setDives(List<DiveSession> diveSessions) {
         CollectionUtil.requireAllNonNull(diveSessions);
+        sortDiveSession();
         internalList.setAll(diveSessions);
     }
 
@@ -104,6 +130,7 @@ public class DiveSessionList implements Iterable<DiveSession> {
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
     public ObservableList<DiveSession> asUnmodifiableObservableList() {
+        sortDiveSession();
         return FXCollections.unmodifiableObservableList(internalList);
     }
 

@@ -1,5 +1,7 @@
 package seedu.divelog.model.dive;
 
+import seedu.divelog.commons.util.CompareUtil;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class DiveSession {
     private final DepthProfile depthProfile;
     private final TimeZone timezone;
     private Date dateTime;
+    private long duration;
 
 
     public DiveSession(
@@ -44,6 +47,17 @@ public class DiveSession {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        try {
+            this.duration = CompareUtil.checkTimeDifference(this.getStart().getTimeString(), this.getEnd().getTimeString(),
+                    this.getDateStart().getOurDateString(), this.getDateEnd().getOurDateString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public long getDuration() {
+        return duration;
     }
 
     public OurDate getDateStart() {

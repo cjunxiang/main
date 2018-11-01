@@ -1,6 +1,8 @@
 package seedu.divelog.commons.core;
 
+import seedu.divelog.commons.enums.SortCategory;
 import seedu.divelog.commons.enums.Units;
+import seedu.divelog.commons.events.SortCategoryChanged;
 import seedu.divelog.commons.events.UnitsChangedEvent;
 
 /**
@@ -10,9 +12,11 @@ import seedu.divelog.commons.events.UnitsChangedEvent;
 public class ApplicationState {
     private static ApplicationState applicationState = new ApplicationState();
     private Units commonUnits;
+    public SortCategory sortByCategory;
 
     private ApplicationState() {
         this.commonUnits = Units.METERS;
+        this.sortByCategory = SortCategory.TIME;
     }
 
 
@@ -33,10 +37,31 @@ public class ApplicationState {
     }
 
     /**
+     * Sets the sorting order of the application
+     * @param newCategory
+     */
+    public void setSortByCategory(SortCategory newCategory) {
+        if (!newCategory.equals(this.sortByCategory)) {
+            EventsCenter ev = EventsCenter.getInstance();
+            ev.post(new SortCategoryChanged(newCategory));
+            sortByCategory = newCategory;
+        }
+    }
+
+    /**
      * Gets the units of the application
      * @return
      */
     public Units getUnit() {
         return this.commonUnits;
     }
+
+    /**
+     * Gets the sorting order of the application
+     * @return
+     */
+    public SortCategory getSortByCategory() {
+        return this.sortByCategory;
+    }
+
 }

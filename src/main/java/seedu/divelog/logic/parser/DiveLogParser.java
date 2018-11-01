@@ -18,6 +18,7 @@ import seedu.divelog.logic.commands.PlanningCommand;
 import seedu.divelog.logic.commands.RedoCommand;
 import seedu.divelog.logic.commands.SelectCommand;
 import seedu.divelog.logic.commands.SetUnitsCommand;
+import seedu.divelog.logic.commands.SortByCommand;
 import seedu.divelog.logic.commands.UndoCommand;
 import seedu.divelog.logic.parser.exceptions.ParseException;
 
@@ -94,6 +95,8 @@ public class DiveLogParser {
         case SetUnitsCommand.COMMAND_WORD:
             return new SetUnitsCommandParser().parse(arguments);
 
+        case SortByCommand.COMMAND_WORD:
+            return new SortByCommandParser().parse(arguments);
 
         default:
             throw new ParseException(Messages.MESSAGE_UNKNOWN_COMMAND);
