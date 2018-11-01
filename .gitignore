@@ -16,6 +16,7 @@ classes/
 /data/
 /bin/
 src/main/resources/docs/
+out/
 /config.json
 
 out/production/resources/divetables/Dive_table_1.json
