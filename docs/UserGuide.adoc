@@ -305,7 +305,7 @@ TIP: use `undo` to, _you've guessed it_, undo your mistaken `clear`  and restore
 
 
 === Setting parameters to sort dives : `sortby` [[sortby]] [coming in V1.4]
-In V1.3, all dives are sorted automatically according to time and date.
+In V1.3, all dives are sorted automatically according to time and date by default.
 
 Want to view your dives in ranked order by different options? Simply type `sortby` followed by a `KEYWORD`,
  your following `list`, `find` commands will return you all your dive sessions in that particular order. +
