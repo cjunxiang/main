@@ -86,3 +86,9 @@ out/production/resources/view/HelpWindow.fxml
 out/production/resources/view/MainWindow.fxml
 out/production/resources/view/ResultDisplay.fxml
 out/production/resources/view/StatusBarFooter.fxml
+out/test/resources/view/UiPartTest/validFileWithFxRoot.fxml
+out/test/resources/divetables/Dive_table_1.json
+out/test/resources/divetables/Dive_table_2.json
+out/test/resources/divetables/surface_table.json
+out/test/resources/view/UiPartTest/invalidFile.fxml
+out/test/resources/view/UiPartTest/validFile.fxml

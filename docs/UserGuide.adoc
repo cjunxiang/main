@@ -304,7 +304,8 @@ TIP: use `undo` to, _you've guessed it_, undo your mistaken `clear`  and restore
      <<undo>>
 
 
-=== Setting parameters to sort dives : `sortby` [[sortby]]
+=== Setting parameters to sort dives : `sortby` [[sortby]] [coming in V1.4]
+In V1.3, all dives are sorted automatically according to time and date.
 
 Want to view your dives in ranked order by different options? Simply type `sortby` followed by a `KEYWORD`,
  your following `list`, `find` commands will return you all your dive sessions in that particular order. +
@@ -330,6 +331,10 @@ WARNING: You can only use the specific keywords below.
 The planning mode is a temporary space for you to plan trips and to simulate dives. This is especially important if you
  are planning on a multiple day diving trip! +
  When you enter the planning mode, simply enter simulation dives as per how you would use the other commands normally.
+When you exit, all your simulation files will be deleted automatically. In the Current V1.3,
+planning mode only supports `add`, `delete` and `edit` commands +
+
+[Coming in V1.4] To convert your simulation files to the actual mode, type `convert`
 
 Format: `newplan` to enter Planning Mode, `normalmode` to exit planning mode.
 
