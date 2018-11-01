@@ -17,8 +17,8 @@ import seedu.divelog.testutil.TypicalDiveSessions;
 public class XmlSerializableDiveLogTest {
 
     private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "XmlSerializableDiveLogTest");
-    private static final Path TYPICAL_DIVES_FILE = TEST_DATA_FOLDER.resolve("typicalPersonsAddressBook.xml");
-    private static final Path INVALID_DIVES_FILE = TEST_DATA_FOLDER.resolve("invalidPersonAddressBook.xml");
+    private static final Path TYPICAL_DIVES_FILE = TEST_DATA_FOLDER.resolve("typicalDivesDiveLogBook.xml");
+    private static final Path INVALID_DIVES_FILE = TEST_DATA_FOLDER.resolve("invalidDiveDiveLogBook.xml");
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();

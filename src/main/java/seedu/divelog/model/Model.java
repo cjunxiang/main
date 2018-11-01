@@ -12,7 +12,7 @@ import seedu.divelog.model.dive.exceptions.DiveNotFoundException;
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<DiveSession> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<DiveSession> PREDICATE_SHOW_ALL_DIVES = unused -> true;
 
     /** Clears existing backing model and replaces with the provided new data. */
     void resetData(ReadOnlyDiveLog newData);

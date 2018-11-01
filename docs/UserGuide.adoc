@@ -32,12 +32,23 @@ current pressure group and the ending pressure group is automatically updated. W
 .  Ensure you have Java version `9` or later installed in your Computer.
 .  Download the latest `divelog.jar` link:{repoURL}/releases[here].
 .  Copy the file to the folder you want to use as the home folder for your Dive Log.
-.  Double-click the file to start the app. The GUI should appear in a few seconds.
+.  Double-click the file to start the app. The GUI (as seen in Diagram 1 below) should appear in a few seconds.
 +
 image::Ui.png[width="790"]
+Diagram 1: Screenshot of GUI
 +
-.  Type the command in the command box and press kbd:[Enter] to execute it. +
+.  Type the command in the command box (as seen in Diagram 2 below) and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
+
++++ <details><summary> +++
+View Screenshot for location of command box
++++ </summary><div> +++
+
+image::./UGScreenshots/Ui_command.png[width="800"]
+Diagram 2: Command Box location
+
++++ </div></details> +++
+
 
 
 [[Features]]
@@ -88,7 +99,14 @@ To change the manner in which your dives are ordered, view `<<sortby>>`
 
 Format: `list`
 
-//insert SCREENSHOT
++++ <details><summary> +++
+View Screenshot for list
++++ </summary><div> +++
+
+image::./UGScreenshots/list.png[width="800"]
+Diagram 3: List command
+
++++ </div></details> +++
 
 === Editing a dive : `edit`
 
@@ -144,6 +162,14 @@ Examples:
 * `find Bali` +
 Returns `Dive at Bali`
 
++++ <details><summary> +++
+View Screenshot for example of a successful find
++++ </summary><div> +++
+
+image::./UGScreenshots/find.png[width="800"]
+Diagram 4: Find command
++++ </div></details> +++
+
 === Deleting a dive : `delete`
 Deletes the specified dive from the Dive Log. +
 Format: `delete INDEX`
@@ -168,8 +194,11 @@ Deletes the 1st dive in the results of the `find` command.
 Selects the dive identified by the index number used in the displayed dive list. +
 Format: `select INDEX`
 
+//to update the rationale for the color code.
 ****
 * Selects the dive and loads the details of the dive at the specified `INDEX`.
+* The current pressure group of the start of the dive and end of the dive will be displayed.
+* The pressure group is colour-coded based on its severity for easier reference. (Green being ok, orange in danger zone and red means critical)
 * The index refers to the index number shown in the displayed diveSession list.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
@@ -183,6 +212,15 @@ Selects the 2nd dive in the Dive Log.
 `select 1` +
 Selects the 1st dive in the results of the `find` command.
 
++++ <details><summary> +++
+View Screenshot for a successful select
++++ </summary><div> +++
+
+image::./UGScreenshots/select.png[width="800"]
+Diagram 5: Select command
+
++++ </div></details> +++
+
 === Listing entered commands : `history`
 
 Forgot what command you did just now and corrupted your data? Find our what command exactly did you execute
@@ -194,6 +232,15 @@ Format: `history`
 ====
 Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box.
 ====
+
++++ <details><summary> +++
+View Screenshot for a successful history command
++++ </summary><div> +++
+
+image::./UGScreenshots/history.png[width="800"]
+Diagram 6: History command
+
++++ </div></details> +++
 
 // tag::undoredo[]
 === Undoing previous command : `undo` [[undo]]

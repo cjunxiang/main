@@ -20,11 +20,12 @@ import seedu.divelog.model.divetables.PadiDiveTable;
 public class PressureGroupLogic {
     PressureGroupLogic(){}
     /**
-     * Calculates the pressure group given depth and minutes spent at depth for repeat dives.
+     * Calculates the pressure group given depth and minutes spent at depth for single/repeat dives.
      *
      * @param depth {@code DepthProfile} in metres, the deepest point which the diver descends for the dive
      * @param actualBottomTime in minutes which the diver spent underwater
-     * @param pg {@code PressureGroup} current PressureGroup object, in consideration for repeat dives
+     * @param pg {@code PressureGroup} current PressureGroup object, in consideration for repeat dives.
+     *         For single (first) dives, this is not taken in consideration.
      * @return new PressureGroup object containing the new pressure group after repeat dive
      * @throws JSONException If an error occurs during reading of the PADI dive table.
      */
@@ -32,12 +33,13 @@ public class PressureGroupLogic {
             throws JSONException, LimitExceededException {
         PadiDiveTable padiDiveTable = PadiDiveTable.getInstance();
         JSONArray arr = padiDiveTable.depthToTimes(depth, pg);
+        //if a dive does not exist on the same day (means first dive) -> run algo without pg
+        //if a dive exists on the same day -> run through original algo with pg
         int adjustedNoDecompressionLimits = arr.getInt(1);
         if ((int) actualBottomTime > adjustedNoDecompressionLimits) {
             throw new LimitExceededException();
         }
-        int totalBottomTime;
-        totalBottomTime = arr.getInt(0) + (int) actualBottomTime;
+        int totalBottomTime = arr.getInt(0) + (int) actualBottomTime;
         PressureGroup newPg;
         newPg = padiDiveTable.depthToPg(depth, totalBottomTime);
         return newPg;

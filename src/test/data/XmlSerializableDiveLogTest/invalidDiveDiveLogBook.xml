@@ -2,11 +2,11 @@
 <divelog>
     <dives>
         <startTime>0700</startTime>
-        <safetyStop>0945</safetyStop>
-        <endTime>1000</endTime>
+        <safetyStop>0745</safetyStop>
+        <endTime>0800</endTime>
         <pressureGroupAtBeginning>Otototo</pressureGroupAtBeginning>
-        <pressureGroupAtEnd>R</pressureGroupAtEnd>
+        <pressureGroupAtEnd>T</pressureGroupAtEnd>
         <location>Bali</location>
-        <depthProfile>10.0</depthProfile>
+        <depthProfile>16.0</depthProfile>
     </dives>
 </divelog>

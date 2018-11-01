@@ -6,13 +6,13 @@ import seedu.divelog.logic.CommandHistory;
 import seedu.divelog.model.Model;
 
 /**
- * Lists all persons in the divelog book to the user.
+ * Lists all dives in the divelog book to the user.
  */
 public class ListCommand extends Command {
 
     public static final String COMMAND_WORD = "list";
 
-    public static final String MESSAGE_SUCCESS = "Listed all persons";
+    public static final String MESSAGE_SUCCESS = "Listed all dives";
 
 
     @Override
@@ -21,7 +21,7 @@ public class ListCommand extends Command {
             model.plannerCountPlus();
         }
         requireNonNull(model);
-        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_DIVES);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

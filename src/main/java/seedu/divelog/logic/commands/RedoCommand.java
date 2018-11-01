@@ -24,7 +24,7 @@ public class RedoCommand extends Command {
         }
 
         model.redoDiveLog();
-        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_DIVES);
         if (model.getPlanningMode()) {
             model.plannerCountPlus();
         }

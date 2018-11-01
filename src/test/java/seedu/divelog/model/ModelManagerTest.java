@@ -2,7 +2,7 @@ package seedu.divelog.model;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.divelog.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.divelog.model.Model.PREDICATE_SHOW_ALL_DIVES;
 import static seedu.divelog.testutil.TypicalDiveSessions.DIVE_AT_BALI;
 import static seedu.divelog.testutil.TypicalDiveSessions.DIVE_AT_NIGHT;
 
@@ -57,11 +57,11 @@ public class ModelManagerTest {
         assertFalse(modelManager.equals(new ModelManager(diveLog, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
-        modelManager.updateFilteredDiveList(PREDICATE_SHOW_ALL_PERSONS);
+        modelManager.updateFilteredDiveList(PREDICATE_SHOW_ALL_DIVES);
 
         // different userPrefs -> returns true
         UserPrefs differentUserPrefs = new UserPrefs();
-        differentUserPrefs.setAddressBookFilePath(Paths.get("differentFilePath"));
+        differentUserPrefs.setDiveLogBookFilePath(Paths.get("differentFilePath"));
         assertTrue(modelManager.equals(new ModelManager(diveLog, differentUserPrefs)));
     }
 }

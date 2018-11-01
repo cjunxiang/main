@@ -97,7 +97,7 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void addDiveSession(DiveSession diveSession) {
         versionedDiveLog.addDive(diveSession);
-        updateFilteredDiveList(PREDICATE_SHOW_ALL_PERSONS);
+        updateFilteredDiveList(PREDICATE_SHOW_ALL_DIVES);
         indicateAddressBookChanged();
     }
 

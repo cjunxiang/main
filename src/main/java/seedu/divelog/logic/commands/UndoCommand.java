@@ -26,7 +26,7 @@ public class UndoCommand extends Command {
             model.plannerCountPlus();
         }
         model.undoDiveLog();
-        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_DIVES);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

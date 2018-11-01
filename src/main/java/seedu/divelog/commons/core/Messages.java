@@ -13,4 +13,5 @@ public class Messages {
     public static final String MESSAGE_INVALID_TIME_FORMAT = "Invalid time format! (Not 24Hr format) ";
     public static final String MESSAGE_INVALID_DATE_FORMAT = "Invalid date format! (Not DDMMYYYY) ";
     public static final String MESSAGE_INVALID_TIMEZONE_FORMAT = "Invalid timezone format! (UTC format)";
+    public static final String MESSAGE_INTERNAL_ERROR = "An internal error occured";
 }

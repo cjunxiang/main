@@ -4,7 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.divelog.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.divelog.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.divelog.model.Model.PREDICATE_SHOW_ALL_DIVES;
 
 import org.junit.Test;
 
@@ -119,7 +119,7 @@ public class EditCommandSystemTest extends DiveLogSystemTest {
         } catch (seedu.divelog.model.dive.exceptions.DiveNotFoundException e) {
             e.printStackTrace();
         }
-        expectedModel.updateFilteredDiveList(PREDICATE_SHOW_ALL_PERSONS);
+        expectedModel.updateFilteredDiveList(PREDICATE_SHOW_ALL_DIVES);
 
         assertCommandSuccess(command, expectedModel,
                 String.format(EditCommand.MESSAGE_EDIT_DIVE_SUCCESS, editedDive), expectedSelectedCardIndex);
@@ -150,7 +150,7 @@ public class EditCommandSystemTest extends DiveLogSystemTest {
     private void assertCommandSuccess(String command, Model expectedModel, String expectedResultMessage,
             Index expectedSelectedCardIndex) {
         executeCommand(command);
-        expectedModel.updateFilteredDiveList(PREDICATE_SHOW_ALL_PERSONS);
+        expectedModel.updateFilteredDiveList(PREDICATE_SHOW_ALL_DIVES);
         assertApplicationDisplaysExpected("", expectedResultMessage, expectedModel);
         assertCommandBoxShowsDefaultStyle();
         if (expectedSelectedCardIndex != null) {

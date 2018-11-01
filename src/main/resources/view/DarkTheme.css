@@ -306,6 +306,26 @@
     -fx-padding: 8 1 8 1;
 }
 
+.thisIsGreenA{
+    -fx-text-fill: #48e234;
+}
+
+.thisIsGreen{
+    -fx-text-fill: GREEN;
+}
+
+.thisIsOrangeP{
+    -fx-text-fill: #ea8c19;
+}
+
+.thisIsOrange{
+    -fx-text-fill: #ff6600;
+}
+
+.thisIsRed{
+    -fx-text-fill: #ff0000;
+}
+
 #cardPane {
     -fx-background-color: transparent;
     -fx-border-width: 0;

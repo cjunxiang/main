@@ -2,11 +2,14 @@ package seedu.divelog.logic.parser;
 
 import java.util.stream.Stream;
 
+import org.json.JSONException;
+
 import seedu.divelog.commons.core.Messages;
 import seedu.divelog.commons.util.CompareUtil;
 import seedu.divelog.logic.commands.AddCommand;
 import seedu.divelog.logic.parser.exceptions.ParseException;
 import seedu.divelog.logic.pressuregroup.PressureGroupLogic;
+import seedu.divelog.logic.pressuregroup.exceptions.LimitExceededException;
 import seedu.divelog.model.dive.DepthProfile;
 import seedu.divelog.model.dive.DiveSession;
 import seedu.divelog.model.dive.Location;
@@ -78,8 +81,12 @@ public class AddCommandParser implements Parser<AddCommand> {
                     new DiveSession(dateStart, startTime, safetyStop, dateEnd, endTime, pressureGroupAtBegining,
                             pressureGroupAtEnd, location, depthProfile, timezone);
             return new AddCommand(dive);
+        } catch (JSONException e) {
+            throw new ParseException(Messages.MESSAGE_INTERNAL_ERROR);
+        } catch (LimitExceededException l) {
+            throw new ParseException(AddCommand.MESSAGE_ERROR);
         } catch (Exception e) {
-            throw new ParseException(Messages.MESSAGE_INVALID_TIME_FORMAT);
+            throw new ParseException(Messages.MESSAGE_INTERNAL_ERROR);
         }
 
     }

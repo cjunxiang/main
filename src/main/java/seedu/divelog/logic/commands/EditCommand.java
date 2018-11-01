@@ -39,7 +39,7 @@ public class EditCommand extends Command {
             + "[" + CliSyntax.PREFIX_SAFETY_STOP + "SAFETY_STOP_TIME] "
             + "[" + CliSyntax.PREFIX_DEPTH + "DEPTH] "
             + "[" + CliSyntax.PREFIX_PRESSURE_GROUP_START + "PG_AT_START] "
-            + "[" + CliSyntax.PREFIX_PRESSURE_GROUP_END + "PG_AT_END] "
+            //+ "[" + CliSyntax.PREFIX_PRESSURE_GROUP_END + "PG_AT_END] "
             + "[" + CliSyntax.PREFIX_LOCATION + "LOCATION]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + CliSyntax.PREFIX_PRESSURE_GROUP_END + "F "
@@ -82,7 +82,7 @@ public class EditCommand extends Command {
         } catch (seedu.divelog.model.dive.exceptions.DiveNotFoundException e) {
             e.printStackTrace();
         }
-        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredDiveList(Model.PREDICATE_SHOW_ALL_DIVES);
         model.commitDiveLog();
         if (model.getPlanningMode()) {
             model.plannerCountPlus();

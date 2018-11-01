@@ -154,6 +154,7 @@ public abstract class DiveLogSystemTest {
     }
 
     /**
+     *
      * Deletes all persons in the divelog book.
      */
     protected void deleteAllPersons() {
